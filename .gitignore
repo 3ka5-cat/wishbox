@@ -1,2 +1,5 @@
 *.zip
 local_libs/
+.DS_Store
+Thumbs.db
+desktop.ini
