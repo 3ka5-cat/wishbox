@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 
 	<meta charset="UTF-8">
@@ -252,6 +252,7 @@
 	<script>
 
 		$(document).ready(function() {
+
 			function close_accordion_section() {
 				$('.accordion .accordion-section-title').removeClass('active');
 				$('.accordion .accordion-section-content').slideUp(300);
@@ -260,38 +261,40 @@
 			$('.accordion-section-title').click(function(e) {
 				// Grab current anchor value
 				var currentAttrValue = $(this).attr('href');
-
 				if($(e.target).is('.active')) {
 					close_accordion_section();
-				}else {
+				} else {
 					close_accordion_section();
 					$(this).addClass('active');
 					// Open up the hidden content panel
-					$('.accordion ' + currentAttrValue).slideDown(300); 
+					$('.accordion ' + currentAttrValue).slideDown(300);
 				}
-
 				e.preventDefault();
 			});
+
 		});
 
-		Parse.initialize("LQQuhN8cCOkbuqemfu16zbiMEGft8c6r0DD8swuU", "sYjZyHyAjHppxVZGkR0Hhk7FmzWjmtD7TuP44aee");
-		var RequestCounter = Parse.Object.extend("RequestCounter");
+		Parse.initialize('LQQuhN8cCOkbuqemfu16zbiMEGft8c6r0DD8swuU', 'sYjZyHyAjHppxVZGkR0Hhk7FmzWjmtD7TuP44aee');
+
+		var RequestCounter = Parse.Object.extend('RequestCounter');
 		var query = new Parse.Query(RequestCounter);
 		var counter;
-		query.get("ZFiNkLvQRP", {
-			success: function (requestCounter) {
+
+		query.get('ZFiNkLvQRP', {
+			success: function(requestCounter) {
+
 				counter = requestCounter;
+
 				var $header = $('#header');
 				var $accordion_section = $('.accordion-section');
 				var $accordion_title = $('.accordion-section-title');
-
-				var $counterValue = $("#counterValue");
+				var $counterValue = $('#counterValue');
 				var $request_input = $('#request');
 				var $submit_button = $('#submit');
 				var $counter = $('#counter');
 				var $form = $('#spaceForm');
 
-				$counterValue.text(counter.get("counter"));
+				$counterValue.text(counter.get('counter'));
 
 				$request_input.on('focus', function(event) {
 					$header.addClass('hide');
@@ -300,6 +303,7 @@
 					$accordion_section.addClass('hide');
 					$accordion_title.addClass('hide');
 				});
+
 				$request_input.on('blur', function(event) {
 					$header.removeClass('hide');
 					$submit_button.removeClass('focused');
@@ -308,17 +312,17 @@
 					$accordion_title.removeClass('hide');
 				});
 
-				$form.on('submit', function (event) {
+				$form.on('submit', function(event) {
 					event.preventDefault();
-					$("#request").val('');
+					$('#request').val('');
 					// increment counter
-					counter.increment("counter");
+					counter.increment('counter');
 					counter.save();
-					$counterValue.text(counter.get("counter"));
+					$counterValue.text(counter.get('counter'));
 				});
 
 			},
-			error: function (object, error) {
+			error: function(object, error) {
 				// The object was not retrieved successfully.
 				// error is a Parse.Error with an error code and message.
 			}
