@@ -23,6 +23,7 @@
 			background-size: cover;
 			font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 			color: #fff;
+			overflow: hidden;
 		}
 
 		a,
@@ -169,14 +170,32 @@
 			margin: 0;
 		}
 
-		.accordion-section-content {
+		.accordion-section {
 			width: 80%;
-			display: none;
 			text-align: center;
 			position: absolute;
-			bottom: 50px;
+			bottom: 0;
 			left: 10%;
 			font-size: 0.9em;
+		}
+
+		.accordion-section-title {
+			display: inline-block;
+			font-size: 0.9em;
+			color: #fff;
+			border-bottom: 1px dashed #fff;
+		}
+
+		.accordion-section-content {
+			height: auto;
+			max-height: 0;
+			overflow: hidden;
+			margin: 1em 0;
+			transition: max-height 0.5s;
+		}
+
+		.accordion-section-content.active {
+			max-height: 350px;
 		}
 
 		.accordion-section-content svg {
@@ -187,15 +206,8 @@
 			fill: #fff;
 		}
 
-		.accordion-section-title {
+		.accordion-section-content span {
 			display: block;
-			width: 100%;
-			position: absolute;
-			bottom: 20px;
-			left: 0;
-			font-size: 0.8em;
-			text-align: center;
-			color: #fff;
 		}
 
 		@media screen and (max-width: 600px) {
@@ -241,8 +253,8 @@
 
 	<div class="accordion">
 		<div class="accordion-section">
-			<a class="accordion-section-title" href="#tip">Что здесь происходит?</a>
-			<div id="tip" class="accordion-section-content">"Хочу, хочу, хочу!". Мы постоянно загадываем желания. Трем носы и пальцы городским достопримечательностям, портим праздничное шампанское, ловим "22:22" на часах. А они, заветные, все не сбываются. Что делать и как с этим бороться? Очень просто. Перестать на них фокусироваться. Отправить запрос и заниматься своими делами. Он обязательно дойдет куда надо и запишется на исполнение. Для этого всего лишь нужно сформулировать его очень-очень конкретно, в позитивной формулировке (без всяких "не"), записать в окошко сверху, нажать кнопку <svg height="16" viewBox="0 0 64 64" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M47.964 8.127H16.036c-4.4 0-8 3.6-8 8v20.977c0 4.4 3.6 8 8 8h7.397v10.768l13.333-10.768h11.197c4.4 0 8-3.6 8-8V16.127c0-4.4-3.6-8-8-8zm3 28.977c0 1.626-1.374 3-3 3H35l-1.375 1.11-5.19 4.193v-5.303H16.036c-1.626 0-3-1.374-3-3V16.127c0-1.626 1.374-3 3-3h31.928c1.626 0 3 1.374 3 3v20.977z"><circle cx="21.743" cy="26.617" r="2.913"><circle cx="32" cy="26.617" r="2.913"><circle cx="42.256" cy="26.617" r="2.913"></svg> и <em>забыть</em>. Космос позаботится о Вас. <span>Он уже начал</span>.</div>
+			<a href="#tip" class="accordion-section-title">Что здесь происходит?</a>
+			<div id="tip" class="accordion-section-content">"Хочу, хочу, хочу!". Мы постоянно загадываем желания. Трем носы и пальцы городским достопримечательностям, портим праздничное шампанское, ловим "22:22" на часах. А они, заветные, все не сбываются. Что делать и как с этим бороться? Очень просто. Перестать на них фокусироваться. Отправить запрос и заниматься своими делами. Он обязательно дойдет куда надо и запишется на исполнение. Для этого всего лишь нужно сформулировать его очень-очень конкретно, в позитивной формулировке (без всяких "не"), записать в окошко сверху, нажать кнопку <svg height="16" viewBox="0 0 64 64" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M47.964 8.127H16.036c-4.4 0-8 3.6-8 8v20.977c0 4.4 3.6 8 8 8h7.397v10.768l13.333-10.768h11.197c4.4 0 8-3.6 8-8V16.127c0-4.4-3.6-8-8-8zm3 28.977c0 1.626-1.374 3-3 3H35l-1.375 1.11-5.19 4.193v-5.303H16.036c-1.626 0-3-1.374-3-3V16.127c0-1.626 1.374-3 3-3h31.928c1.626 0 3 1.374 3 3v20.977z"><circle cx="21.743" cy="26.617" r="2.913"><circle cx="32" cy="26.617" r="2.913"><circle cx="42.256" cy="26.617" r="2.913"></svg> и <em>забыть</em>. Космос позаботится о Вас. <span>Он уже начал.</span></div>
 		</div>
 	</div>
 
@@ -253,23 +265,19 @@
 
 		$(document).ready(function() {
 
-			function close_accordion_section() {
-				$('.accordion .accordion-section-title').removeClass('active');
-				$('.accordion .accordion-section-content').slideUp(300);
-			}
+			$('.accordion-section-title').click(function(event) {
 
-			$('.accordion-section-title').click(function(e) {
-				// Grab current anchor value
-				var currentAttrValue = $(this).attr('href');
-				if($(e.target).is('.active')) {
-					close_accordion_section();
+				var value = $(this).attr('href'),
+					el = $('.accordion').find(value);
+
+				if($(el).is('.active')) {
+					$(el).removeClass('active');
 				} else {
-					close_accordion_section();
-					$(this).addClass('active');
-					// Open up the hidden content panel
-					$('.accordion ' + currentAttrValue).slideDown(300);
+					$(el).addClass('active');
 				}
-				e.preventDefault();
+
+				event.preventDefault();
+
 			});
 
 		});
