@@ -310,8 +310,10 @@
 
                 if ($(el).is('.active'))
                     $(el).removeClass('active');
-                else
+                else {
                     $(el).addClass('active');
+                    yaCounter33316388.reachGoal('TIP');
+                }
 
                 event.preventDefault();
             });
@@ -324,6 +326,7 @@
                 $counter.addClass('hide');
                 $accordion_section.addClass('hide');
                 $accordion_title.addClass('hide');
+                yaCounter33316388.reachGoal('INPUT_FOCUS');
             });
 
             $request_input.on('blur', function(event) {
@@ -338,6 +341,7 @@
                 event.preventDefault();
                 var request_text = $request_input.val();
                 $request_input.val('');
+                yaCounter33316388.reachGoal('WISH');
                 $counterValue.text(parseInt($counterValue.text(), 10) + 1);
                 send_wish(request_text, $counterValue);
             });
