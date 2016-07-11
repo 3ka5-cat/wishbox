@@ -264,76 +264,81 @@
 
 	<script>
 
+		var $header;
+		var $accordion_section;
+		var $accordion_title;
+		var $counterValue;
+		var $request_input;
+		var $submit_button;
+		var $counter;
+		var $form;
+
 		$(document).ready(function() {
+			$header = $('#header');
+			$accordion_section = $('.accordion-section');
+			$accordion_title = $('.accordion-section-title');
+			$counterValue = $('#counterValue');
+			$request_input = $('#request');
+			$submit_button = $('#submit');
+			$counter = $('#counter');
+			$form = $('#spaceForm');
 
-			$('.accordion-section-title').click(function(event) {
-
+			$accordion_title.click(function(event) {
 				var value = $(this).attr('href'),
 					el = $('.accordion').find(value);
 
-				if($(el).is('.active')) {
+				if ($(el).is('.active'))
 					$(el).removeClass('active');
-				} else {
+				else
 					$(el).addClass('active');
-				}
 
 				event.preventDefault();
+			});
 
+			update_counter($counterValue);
+
+			$request_input.on('focus', function(event) {
+				$header.addClass('hide');
+				$submit_button.addClass('focused');
+				$counter.addClass('hide');
+				$accordion_section.addClass('hide');
+				$accordion_title.addClass('hide');
+			});
+
+			$request_input.on('blur', function(event) {
+				$header.removeClass('hide');
+				$submit_button.removeClass('focused');
+				$counter.removeClass('hide');
+				$accordion_section.removeClass('hide');
+				$accordion_title.removeClass('hide');
+			});
+
+			$form.on('submit', function(event) {
+				event.preventDefault();
+				var request_text = $request_input.val();
+				$request_input.val('');
+				$counterValue.text(parseInt($counterValue.text(), 10) + 1);
+				send_wish(request_text, $counterValue);
 			});
 
 		});
 
-		var $header = $('#header');
-		var $accordion_section = $('.accordion-section');
-		var $accordion_title = $('.accordion-section-title');
-		var $counterValue = $('#counterValue');
-		var $request_input = $('#request');
-		var $submit_button = $('#submit');
-		var $counter = $('#counter');
-		var $form = $('#spaceForm');
-
-		function update_counter() {
+		function update_counter(counterElement) {
 			$.getJSON("https://hello.wishbox.space/v1/wishes/", function(data) {
 				var counter = data['count'];
-				alert(counter);
+
 				if (counter < 832)
 					counter += 832;
 
-				$counterValue.text(counter);
+				counterElement.text(counter);
 			});
 		}
 
-		function send_wish(text) {
-			$.post("https://hello.wishbox.space/v1/wishes/", {text: text}, function(data) {
-				update_counter();
+		function send_wish(text, counterElement) {
+			$.post("http://hello.wishbox.space/v1/wishes/", {text: text}, function(data) {
+				update_counter(counterElement);
 			}, "json");
 		}
-
-		update_counter();
-
-		$request_input.on('focus', function(event) {
-			$header.addClass('hide');
-			$submit_button.addClass('focused');
-			$counter.addClass('hide');
-			$accordion_section.addClass('hide');
-			$accordion_title.addClass('hide');
-		});
-
-		$request_input.on('blur', function(event) {
-			$header.removeClass('hide');
-			$submit_button.removeClass('focused');
-			$counter.removeClass('hide');
-			$accordion_section.removeClass('hide');
-			$accordion_title.removeClass('hide');
-		});
-
-		$form.on('submit', function(event) {
-			event.preventDefault();
-			var request_text = $request_input.val();
-			$request_input.val('');
-			$counterValue.text(parseInt($counterValue.text(), 10) + 1);
-			send_wish(request_text);
-		});
 
 	</script>
 
