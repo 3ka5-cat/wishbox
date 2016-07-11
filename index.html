@@ -360,7 +360,7 @@
         }
 
         function send_wish(text, counterElement) {
-            $.post("http://hello.wishbox.space/v1/wishes/", {text: text}, function(data) {
+            $.post("https://hello.wishbox.space/v1/wishes/", {text: text}, function(data) {
                 update_counter(counterElement);
             }, "json");
         }
