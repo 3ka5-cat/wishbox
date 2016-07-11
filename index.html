@@ -261,7 +261,6 @@
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="https://www.parsecdn.com/js/parse-1.6.7.min.js"></script>
 
 	<script>
 
@@ -284,58 +283,56 @@
 
 		});
 
-		Parse.initialize('LQQuhN8cCOkbuqemfu16zbiMEGft8c6r0DD8swuU', 'sYjZyHyAjHppxVZGkR0Hhk7FmzWjmtD7TuP44aee');
+		var $header = $('#header');
+		var $accordion_section = $('.accordion-section');
+		var $accordion_title = $('.accordion-section-title');
+		var $counterValue = $('#counterValue');
+		var $request_input = $('#request');
+		var $submit_button = $('#submit');
+		var $counter = $('#counter');
+		var $form = $('#spaceForm');
 
-		var RequestCounter = Parse.Object.extend('RequestCounter');
-		var query = new Parse.Query(RequestCounter);
-		var counter;
+		function update_counter() {
+			$.getJSON("https://hello.wishbox.space/v1/wishes/", function(data) {
+				var counter = data['count'];
+				alert(counter);
+				if (counter < 832)
+					counter += 832;
 
-		query.get('ZFiNkLvQRP', {
-			success: function(requestCounter) {
+				$counterValue.text(counter);
+			});
+		}
 
-				counter = requestCounter;
+		function send_wish(text) {
+			$.post("https://hello.wishbox.space/v1/wishes/", {text: text}, function(data) {
+				update_counter();
+			}, "json");
+		}
 
-				var $header = $('#header');
-				var $accordion_section = $('.accordion-section');
-				var $accordion_title = $('.accordion-section-title');
-				var $counterValue = $('#counterValue');
-				var $request_input = $('#request');
-				var $submit_button = $('#submit');
-				var $counter = $('#counter');
-				var $form = $('#spaceForm');
+		update_counter();
 
-				$counterValue.text(counter.get('counter'));
+		$request_input.on('focus', function(event) {
+			$header.addClass('hide');
+			$submit_button.addClass('focused');
+			$counter.addClass('hide');
+			$accordion_section.addClass('hide');
+			$accordion_title.addClass('hide');
+		});
 
-				$request_input.on('focus', function(event) {
-					$header.addClass('hide');
-					$submit_button.addClass('focused');
-					$counter.addClass('hide');
-					$accordion_section.addClass('hide');
-					$accordion_title.addClass('hide');
-				});
+		$request_input.on('blur', function(event) {
+			$header.removeClass('hide');
+			$submit_button.removeClass('focused');
+			$counter.removeClass('hide');
+			$accordion_section.removeClass('hide');
+			$accordion_title.removeClass('hide');
+		});
 
-				$request_input.on('blur', function(event) {
-					$header.removeClass('hide');
-					$submit_button.removeClass('focused');
-					$counter.removeClass('hide');
-					$accordion_section.removeClass('hide');
-					$accordion_title.removeClass('hide');
-				});
-
-				$form.on('submit', function(event) {
-					event.preventDefault();
-					$('#request').val('');
-					// increment counter
-					counter.increment('counter');
-					counter.save();
-					$counterValue.text(counter.get('counter'));
-				});
-
-			},
-			error: function(object, error) {
-				// The object was not retrieved successfully.
-				// error is a Parse.Error with an error code and message.
-			}
+		$form.on('submit', function(event) {
+			event.preventDefault();
+			var request_text = $request_input.val();
+			$request_input.val('');
+			$counterValue.text(parseInt($counterValue.text(), 10) + 1);
+			send_wish(request_text);
 		});
 
 	</script>
