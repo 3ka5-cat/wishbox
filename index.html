@@ -13,218 +13,7 @@
     Для этого нужно четко сформулировать мечту и отправить в письме Вселенной">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="all">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=latin,cyrillic">
-
-    <style>
-
-        html {
-            height: 100%;
-        }
-
-        body {
-            height: 100%;
-            position: relative;
-            background: #000 url(static/bg.min.jpg) no-repeat scroll 0 0;
-            background-size: cover;
-            font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-            color: #fff;
-            overflow: hidden;
-        }
-
-        a,
-        a:hover {
-            text-decoration: none;
-        }
-
-        input::-webkit-input-placeholder {
-            color: #fff;
-            font-size: 75%;
-            line-height: 1.5em;
-            font-weight: 300;
-            transition: all 0.5s;
-        }
-
-        input::-moz-placeholder {
-            color: #fff;
-            font-size: 75%;
-            line-height: 1.5em;
-            font-weight: 300;
-            transition: all 0.5s;
-        }
-
-        input::-ms-input-placeholder {
-            color: #fff;
-            font-size: 75%;
-            line-height: 1.5em;
-            font-weight: 300;
-            transition: all 0.5s;
-        }
-
-        input:focus::-webkit-input-placeholder {
-            color: transparent;
-        }
-
-        input:focus::-moz-placeholder {
-            color: transparent;
-        }
-
-        input:focus::-ms-input-placeholder {
-            color: transparent;
-        }
-
-        .container {
-            display: flex;
-            height: 90%;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            transition: height 0.5s;
-        }
-
-        .container-header {
-            font-weight: 300;
-            margin: 0 0 1em 0;
-            padding: 0;
-            opacity: 1;
-            transition: all 0.5s;
-        }
-
-        .container-header.hide {
-            opacity: 0.5;
-        }
-
-        .container-form {
-            display: block;
-            width: 80%;
-            position: relative;
-        }
-
-        .container-form-input {
-            display: block;
-            color: #122E62;
-            background: rgba(255, 255, 255, 0.60);
-            border: 0;
-            border-radius: 1.5rem;
-            height: 3rem;
-            width: calc(100% - 4rem);
-            font-size: 2em;
-            line-height: 2.5rem;
-            text-align: center;
-            margin: 0;
-            padding: 0 3.5rem 0 0.5rem;
-            transition: all 0.25s;
-        }
-
-        .container-form-input:focus {
-            box-shadow: -5px 0 20px #fff, 0 -5px 20px #fff, 5px 0 20px #fff, 5px 0 20px #fff, -5px 5px 20px #fff, 5px 5px 20px #fff;
-            outline: none;
-        }
-
-        .container-form-button {
-            display: block;
-            position: absolute;
-            top: 0;
-            right: 0;
-            padding: 0;
-            margin: 0;
-            border: none;
-            background: rgba(255, 255, 255, 0.25);
-            border-radius: 50%;
-            width: 3rem;
-            height: 3rem;
-        }
-
-        .container-form-button:focus {
-            outline: none;
-        }
-
-        .container-form-button-icon {
-            display: block;
-            width: 32px;
-            height: 32px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .container-form-button-icon > * {
-            fill: #fff;
-        }
-
-        .container-form-button:hover .container-form-button-icon > *,
-        .container-form-button.focused .container-form-button-icon > * {
-            fill: #122E62;
-        }
-
-        .container-counter {
-            width: 100%;
-            text-align: center;
-            margin: 2em 0 0 0;
-            flex: none;
-            text-shadow: 0 1px 3px black;
-            transition: color 0.5s, transform 1s, text-shadow 0.5s;
-        }
-
-        .container-counter.hide {
-            position: relative;
-            transform: translate(0, 50px);
-            color: transparent;
-            text-shadow: 0 1px 3px transparent;
-        }
-
-        .container-counter-text {
-            margin: 0;
-        }
-
-        .accordion-section {
-            width: 80%;
-            text-align: center;
-            position: absolute;
-            bottom: 0;
-            left: 10%;
-        }
-
-        .accordion-section-title {
-            display: inline-block;
-            color: #fff;
-            border-bottom: 1px dashed #fff;
-        }
-
-        .accordion-section-content {
-            height: auto;
-            max-height: 0;
-            overflow: hidden;
-            margin: 1em 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 1s, visibility 1s, max-height 1s;
-        }
-
-        .accordion-section-content.active {
-            max-height: 325px;
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .accordion-section-content svg {
-            vertical-align: bottom;
-        }
-
-        .accordion-section-content svg > * {
-            fill: #fff;
-        }
-
-        .accordion-section-content span {
-            display: block;
-        }
-
-        @media screen and (max-width: 600px) {
-
-            .container {
-                height: 45%;
-            }
-
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
@@ -233,10 +22,15 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/33316388" style="position:absolute; left:-9999px;" alt=""></div></noscript>
     <!-- /Yandex.Metrika counter -->
     <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+    <script type="text/javascript" src="//yastatic.net/share2/share.js" async="async" charset="utf-8"></script>
 
     <div class="container">
         <h1 class="container-header" id="header">Хочу, чтобы...</h1>
+        <div class="container-done-msg hide" id="done-msg"><p>Готово! Запрос ушел Космосу,
+            теперь осталось расслабиться и перестань об этом думать.
+            Все будет хорошо!</p>
+            <a href="#" class="link hide" id="again">Но лучше загадать еще одно желание</a>
+        </div>
         <form class="container-form" id="spaceForm">
             <input class="container-form-input" id="request" type="text" placeholder="... формулируй, космос ждет">
             <button class="container-form-button" id="submit">
@@ -254,6 +48,7 @@
         </form>
         <div class="container-counter" id="counter">
             <p class="container-counter-text">Вселенная позаботилась уже о <strong id="counterValue">0</strong> запросах</p>
+            <p class="container-counter-text">Если рассказать об этом друзьям, счастливых людей станет больше</p>
             <p><div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir,twitter,lj,viber,whatsapp"></div></p>
         </div>
     </div>
@@ -284,15 +79,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <script>
-
-        var $header;
-        var $accordion_section;
-        var $accordion_title;
-        var $counterValue;
-        var $request_input;
-        var $submit_button;
-        var $counter;
-        var $form;
+        var $header, $accordion_section, $accordion_title,
+                $counterValue, $request_input, $submit_button,
+                $counter, $form, $done;
 
         $(document).ready(function() {
             $header = $('#header');
@@ -303,6 +92,7 @@
             $submit_button = $('#submit');
             $counter = $('#counter');
             $form = $('#spaceForm');
+            $done = $('#done-msg');
 
             $accordion_title.click(function(event) {
                 var value = $(this).attr('href'),
@@ -340,10 +130,28 @@
             $form.on('submit', function(event) {
                 event.preventDefault();
                 var request_text = $request_input.val();
-                $request_input.val('');
-                yaCounter33316388.reachGoal('WISH');
-                $counterValue.text(parseInt($counterValue.text(), 10) + 1);
-                send_wish(request_text, $counterValue);
+                if (request_text.length > 2) {
+                    $request_input.val('');
+                    $header.addClass('done');
+                    $form.addClass('hide');
+                    $done.removeClass('hide');
+                    $done.children().removeClass('hide');
+                    yaCounter33316388.reachGoal('WISH');
+                    $counterValue.text(parseInt($counterValue.text(), 10) + 1);
+                    send_wish(request_text, $counterValue);
+                }
+                else {
+                    // TODO: show message about too short wish
+//                    'Желание слишком короткое. Не надо скромничать, чем конкретнее будет сформулировано желание, тем лучше'
+                }
+            });
+
+            $done.on('click', function(event) {
+                event.preventDefault();
+                $done.children().addClass('hide');
+                $done.addClass('hide');
+                $form.removeClass('hide');
+                $header.removeClass('done');
             });
 
         });
