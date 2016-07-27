@@ -49,7 +49,7 @@
         <div class="container-counter" id="counter">
             <p>Вселенная позаботилась уже о <strong id="counterValue">0</strong> запросах</p>
             <p>Если рассказать об этом друзьям, счастливых людей станет больше</p>
-            <p><div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir,twitter,lj,viber,whatsapp"></div></p>
+            <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir,twitter,lj,viber,whatsapp"></div>
         </div>
     </div>
 
@@ -114,6 +114,7 @@
                 $header.addClass('input-focus');
                 $submit_button.addClass('focused');
                 $counter.addClass('hide');
+                $counter.children().addClass('hide');
                 $accordion_section.addClass('hide');
                 $accordion_title.addClass('hide');
                 yaCounter33316388.reachGoal('INPUT_FOCUS');
@@ -123,6 +124,7 @@
                 $header.removeClass('input-focus');
                 $submit_button.removeClass('focused');
                 $counter.removeClass('hide');
+                $counter.children().removeClass('hide');
                 $accordion_section.removeClass('hide');
                 $accordion_title.removeClass('hide');
             });
