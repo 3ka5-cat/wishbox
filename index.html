@@ -26,7 +26,7 @@
 
     <div class="container">
         <h1 class="container-header" id="header">Хочу, чтобы...</h1>
-        <div class="container-done-msg hide" id="done-msg"><p>Готово! Запрос ушел Космосу,
+        <div class="container-done-msg hide" id="done-msg"><p>Запрос ушел Космосу,
             теперь осталось расслабиться и перестань об этом думать.
             Все будет хорошо!</p>
             <a href="#" class="link hide" id="again">Но лучше загадать еще одно желание</a>
@@ -111,7 +111,7 @@
             update_counter($counterValue);
 
             $request_input.on('focus', function(event) {
-                $header.addClass('hide');
+                $header.addClass('input-focus');
                 $submit_button.addClass('focused');
                 $counter.addClass('hide');
                 $accordion_section.addClass('hide');
@@ -120,7 +120,7 @@
             });
 
             $request_input.on('blur', function(event) {
-                $header.removeClass('hide');
+                $header.removeClass('input-focus');
                 $submit_button.removeClass('focused');
                 $counter.removeClass('hide');
                 $accordion_section.removeClass('hide');
@@ -133,6 +133,7 @@
                 if (request_text.length > 2) {
                     $request_input.val('');
                     $header.addClass('done');
+                    $header.text('Готово');
                     $form.addClass('hide');
                     $done.removeClass('hide');
                     $done.children().removeClass('hide');
@@ -152,6 +153,7 @@
                 $done.addClass('hide');
                 $form.removeClass('hide');
                 $header.removeClass('done');
+                $header.text('Хочу, чтобы...');
             });
 
         });

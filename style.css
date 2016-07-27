@@ -74,7 +74,7 @@ input:focus::-ms-input-placeholder {
     margin: 0 0 1em 0;
 }
 
-.container-header.hide {
+.container-header.input-focus {
     opacity: 0.5;
 }
 
@@ -238,7 +238,6 @@ input:focus::-ms-input-placeholder {
     color: #fff;
     border-bottom: 1px dashed #fff;
 }
-
 
 .link.hide {
     position: relative;
