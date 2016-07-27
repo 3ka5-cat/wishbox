@@ -130,21 +130,16 @@
             $form.on('submit', function(event) {
                 event.preventDefault();
                 var request_text = $request_input.val();
-                if (request_text.length > 2) {
-                    $request_input.val('');
-                    $header.addClass('done');
-                    $header.text('Готово');
-                    $form.addClass('hide');
-                    $done.removeClass('hide');
-                    $done.children().removeClass('hide');
-                    yaCounter33316388.reachGoal('WISH');
-                    $counterValue.text(parseInt($counterValue.text(), 10) + 1);
-                    send_wish(request_text, $counterValue);
-                }
-                else {
-                    // TODO: show message about too short wish
-//                    'Желание слишком короткое. Не надо скромничать, чем конкретнее будет сформулировано желание, тем лучше'
-                }
+
+                $request_input.val('');
+                $header.addClass('done');
+                $header.text('Готово');
+                $form.addClass('hide');
+                $done.removeClass('hide');
+                $done.children().removeClass('hide');
+                yaCounter33316388.reachGoal('WISH');
+                $counterValue.text(parseInt($counterValue.text(), 10) + 1);
+                send_wish(request_text, $counterValue);
             });
 
             $done.on('click', function(event) {
