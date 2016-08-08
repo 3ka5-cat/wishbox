@@ -231,6 +231,10 @@ input:focus::-ms-input-placeholder {
         height: 45%;
     }
 
+    .container-header {
+        margin: 5em 0 -1.5em 0;
+    }
+
 }
 
 .link {
