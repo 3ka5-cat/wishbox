@@ -5,11 +5,10 @@ html {
 body {
     height: 100%;
     position: relative;
-    background: #000 url(static/bg.min.jpg) no-repeat scroll 0 0;
+    background: #00001b url(static/bg.min.jpg) no-repeat scroll 0 0;
     background-size: cover;
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     color: #fff;
-    overflow: hidden;
 }
 
 a,
@@ -208,7 +207,7 @@ input:focus::-ms-input-placeholder {
 }
 
 .accordion-section-content.active {
-    max-height: 325px;
+    max-height: 520px;
     opacity: 1;
     visibility: visible;
 }
@@ -225,14 +224,36 @@ input:focus::-ms-input-placeholder {
     display: block;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px), (max-height: 400px) {
 
     .container {
-        height: 45%;
+        height: 100%;
+        position: relative;
     }
 
     .container-header {
-        margin: 5em 0 -1.5em 0;
+        margin: -1em 0 0 0;
+    }
+
+    .accordion-section {
+        width: 100%;
+        position: static;
+    }
+
+    .accordion-section-title {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .accordion-section-content {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .accordion-section-content.active {
+        padding-bottom: 20px;
     }
 
 }
