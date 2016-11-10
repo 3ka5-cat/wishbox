@@ -168,9 +168,12 @@
         }
 
         function send_wish(text, counterElement) {
-            $.post("https://hello.wishbox.space/v1/wishes/", {text: text}, function(data) {
-                update_counter(counterElement);
-            }, "json");
+            var client_id = yaCounter33316388.getClientID();
+            $.post("http://hello.wishbox.space/v1/wishes/",
+                    {text: text, external_user_id: client_id},
+                    function(data) {
+                        update_counter(counterElement);
+                    }, "json");
         }
 
     </script>
