@@ -257,7 +257,7 @@ input:focus::-ms-input-placeholder {
     }
 
     .accordion-section-content.active {
-        padding-bottom: 20px;
+        padding-bottom: 40px;
     }
 
 }
