@@ -26,7 +26,11 @@
 
     <div class="container">
         <h1 class="container-header" id="header">Хочу, чтобы...</h1>
-        <div class="container-done-msg hide" id="done-msg"><p>Запрос ушел Космосу,
+        <div class="container-done-msg hide" id="done-msg">
+            <p style="margin-bottom: 20px">В Петербурге грифонов увезли на реставрацию и обнаружили записки с желаниями.
+            Хотите <a href="http://kgiop.gov.spb.ru/press-centr/news/16379/" id="grif" class="link hide">посмотреть</a>?
+            </p>
+            <p>Запрос ушел Космосу,
             теперь осталось расслабиться и перестань об этом думать.
             Все будет хорошо!</p>
             <a href="#" class="link hide" id="again">Но лучше загадать еще одно желание</a>
@@ -82,7 +86,7 @@
     <script>
         var $header, $accordion_section, $accordion_title,
                 $counterValue, $request_input, $submit_button,
-                $counter, $form, $done;
+                $counter, $form, $done, $grif;
 
         $(document).ready(function() {
             $header = $('#header');
@@ -94,6 +98,7 @@
             $counter = $('#counter');
             $form = $('#spaceForm');
             $done = $('#done-msg');
+            $grif = $('#grif');
 
             $accordion_title.click(function(event) {
                 var value = $(this).attr('href'),
@@ -136,10 +141,11 @@
 
             $form.on('submit', submit_form);
 
-            $done.on('click', function(event) {
+            $('#again').on('click', function(event) {
                 event.preventDefault();
                 $done.children().addClass('hide');
                 $done.addClass('hide');
+                $grif.addClass('hide');
                 $form.removeClass('hide');
                 $header.removeClass('done');
                 $header.text('Хочу, чтобы...');
@@ -157,6 +163,7 @@
             $header.addClass('done');
             $header.text('Готово');
             $form.addClass('hide');
+            $grif.removeClass('hide');
             $done.removeClass('hide');
             $done.children().removeClass('hide');
             yaCounter33316388.reachGoal('WISH');
