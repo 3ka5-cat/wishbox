@@ -171,25 +171,38 @@
         }
 
         function update_counter(counterElement) {
-            $.getJSON("https://hello.wishbox.space/v1/wishes/", function(data) {
-                var counter = data['count'];
+            var url = "https://hello.wishbox.space/api/wishes";
+            $.ajax({
+                type: "GET",
+                url: url,
+                headers: {"Content-Type": "application/json"},
+                success: function(data) {
+                    var counter = data['data']['count'];
 
-                if (counter < 832)
-                    counter += 832;
+                    if (counter < 832)
+                        counter += 832;
 
-                counterElement.text(counter);
+                    counterElement.text(counter);
+                },
+                dataType: "json"
             });
         }
 
         function send_wish(text, counterElement) {
             var client_id = yaCounter33316388.getClientID();
-            $.post("https://hello.wishbox.space/v1/wishes/",
-                    {text: text, external_user_id: client_id},
-                    function(data) {
-                        update_counter(counterElement);
-                    }, "json");
-        }
+            var url = "https://hello.wishbox.space/api/wishes";
 
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: JSON.stringify({text: text, external_user_id: client_id}),
+                headers: {"Content-Type": "application/json"},
+                success: function(data) {
+                        update_counter(counterElement);
+                    },
+                dataType: "json"
+            });
+        }
     </script>
 
 </body>
