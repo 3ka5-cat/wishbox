@@ -49,7 +49,7 @@ class WishForm extends React.Component {
   }
 
   handleWishChange(e) {
-    this.setState({wish: e.target.value.trim()});
+    this.setState({wish: e.target.value});
   }
 
   handleFocus(e) {
