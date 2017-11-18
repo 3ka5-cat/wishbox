@@ -4,11 +4,15 @@ html {
 
 body {
     height: 100%;
-    position: relative;
     background: #00001b url(static/bg.min.jpg) no-repeat scroll 0 0;
     background-size: cover;
-    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
     color: #fff;
+}
+
+#root {
+    height: 100%;
+    position: relative;
 }
 
 a,
@@ -190,10 +194,18 @@ input:focus::-ms-input-placeholder {
     left: 10%;
 }
 
+.accordion-section-title.hide {
+    display: none;
+}
+
 .accordion-section-title {
     display: inline-block;
     color: #fff;
     border-bottom: 1px dashed #fff;
+}
+
+.accordion-section-content.hide {
+    display: none;
 }
 
 .accordion-section-content {
@@ -233,11 +245,15 @@ input:focus::-ms-input-placeholder {
     }
 
     .container-header {
-        margin: -1em 0 0 0;
+        margin: -1em 0 -2em 0;
     }
 
     .container-form-input {
         font-size: 1.5em;
+    }
+
+    .container-counter {
+        margin: 2em 0 0 0;
     }
 
     .accordion-section {
@@ -246,10 +262,7 @@ input:focus::-ms-input-placeholder {
     }
 
     .accordion-section-title {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
+        margin-bottom: 20px;
     }
 
     .accordion-section-content {
@@ -258,7 +271,7 @@ input:focus::-ms-input-placeholder {
     }
 
     .accordion-section-content.active {
-        padding-bottom: 20px;
+        padding-bottom: 60px;
     }
 
 }

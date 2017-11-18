@@ -17,9 +17,11 @@ local_libs/
 *.zip
 *.tar
 *.psd
+*.log
 
 .DS_Store
 Thumbs.db
 desktop.ini
 
 .idea/
+node_modules/
