@@ -45,7 +45,7 @@ class WishForm extends React.Component {
     this.handleFocus = this.handleFocus.bind(this)
     this.handleBlur = this.handleBlur.bind(this)
     this.handleWishChange = this.handleWishChange.bind(this)
-    this.sendWish = this.sendWish.bind(this)
+    window.sendWish = this.sendWish = this.sendWish.bind(this)
   }
 
   handleWishChange(e) {
@@ -60,16 +60,16 @@ class WishForm extends React.Component {
     this.props.updateWishFormFocus(false);
   }
 
-  sendWish(e) {
-    e.preventDefault();
+  sendWish(reCaptchaResponse) {
     yaCounter33316388.reachGoal("WISH");
-    var client_id = yaCounter33316388.getClientID();
+    var clientId = yaCounter33316388.getClientID();
     var url = "https://hello.wishbox.space/api/wishes";
 //    var url = "http://127.0.0.1:5000/api/wishes";
 
     axios.post(url, {
       text: this.state.wish,
-      external_user_id: client_id
+      external_user_id: clientId,
+      recaptcha_token: reCaptchaResponse,
     })
     .then(function (response) {
       console.log(response);
@@ -90,8 +90,9 @@ class WishForm extends React.Component {
             <input className="container-form-input" type="text" placeholder="... формулируй, космос ждет"
                 value={this.state.wish} onChange={this.handleWishChange}
                 onFocus={this.handleFocus} onBlur={this.handleBlur}/>
-            <button className={"container-form-button " + (isWishFormInFocus ? "focused":"")}
-                disabled={!this.state.wish} onClick={this.sendWish}>
+            <button className={"container-form-button g-recaptcha " + (isWishFormInFocus ? "focused":"")}
+                disabled={!this.state.wish} data-theme="dark" data-sitekey="6LfRWDsUAAAAAIDgXusXVA7JmuSbmWlStqLkSFal"
+                data-callback="sendWish">
                 <svg className="container-form-button-icon" height="32" viewBox="0 0 64 64"
                      width="32" xmlns="http://www.w3.org/2000/svg">
                     <path d="M47.964 8.127H16.036c-4.4 0-8 3.6-8 8v20.977c0 4.4 3.6 8 8
