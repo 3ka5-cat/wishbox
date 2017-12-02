@@ -80,6 +80,7 @@ class WishForm extends React.Component {
 
     this.setState({wish: ""});
     this.props.updateWishSentStatus(true);
+    grecaptcha.reset();
   }
 
   render() {
