@@ -1,11 +1,5 @@
-html {
+html, body {
     height: 100%;
-}
-
-body {
-    height: 100%;
-    background: #00001b url(static/bg.min.jpg) no-repeat scroll 0 0;
-    background-size: cover;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     color: #fff;
 }
@@ -13,6 +7,18 @@ body {
 #root {
     height: 100%;
     position: relative;
+}
+
+.wish {
+    background: #00001b url(static/bg.min.jpg) no-repeat scroll 0 0;
+    height: 100%;
+    background-size: cover;
+}
+
+.wish.new-year {
+    background: #00001b url(static/bg_ny.min.jpg) no-repeat scroll 0 -350px;
+    height: 100%;
+    background-size: cover;
 }
 
 a,
@@ -58,7 +64,6 @@ input:focus::-ms-input-placeholder {
 
 .container {
     display: flex;
-    height: 90%;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -132,8 +137,6 @@ input:focus::-ms-input-placeholder {
 
 .container-form-button-icon {
     display: block;
-    width: 32px;
-    height: 32px;
     margin: 0 auto;
     text-align: center;
 }
@@ -226,6 +229,8 @@ input:focus::-ms-input-placeholder {
 
 .accordion-section-content svg {
     vertical-align: bottom;
+    width: 16px;
+    height: 16px
 }
 
 .accordion-section-content svg > * {
@@ -242,6 +247,16 @@ input:focus::-ms-input-placeholder {
     .container {
         height: 100%;
         position: relative;
+    }
+
+    .wish.new-year {
+        background: #00001b url(static/bg_ny3.min.jpg) no-repeat scroll 0 0;
+        height: 100%;
+        background-size: cover;
+    }
+
+    .new-year > .container-header {
+        font-size: 1.5em;
     }
 
     .container-header {

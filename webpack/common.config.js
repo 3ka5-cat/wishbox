@@ -7,7 +7,7 @@ const production = require('./prod.config.js');
 const TARGET = process.env.npm_lifecycle_event;
 
 const BUILD_DIR = path.join(__dirname, "../dist");
-const APP_DIR = path.join(__dirname, "..");
+const APP_DIR = path.join(__dirname, "../src");
 
 const common = {
     entry:  {

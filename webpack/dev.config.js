@@ -3,8 +3,9 @@ const webpack = require('webpack');
 module.exports = {
   devtool: "source-map",
   devServer: {
-        host: "0.0.0.0",
+        host: "127.0.0.1",
         publicPath: "/dist",
+        historyApiFallback: true,
         inline: true
     },
   plugins: [
