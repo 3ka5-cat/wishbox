@@ -1,4 +1,5 @@
 import React from 'react';
+import ym from 'react-yandex-metrika';
 
 class TipAccordion extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class TipAccordion extends React.Component {
   uncollapse(e) {
     e.preventDefault();
     this.setState({collapsed: !this.state.collapsed});
+    this.props.wishType ? ym('reachGoal', `TIP_${this.props.wishType}`) : ym('reachGoal', 'TIP');
   }
 
   render() {

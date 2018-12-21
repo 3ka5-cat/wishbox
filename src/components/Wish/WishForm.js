@@ -29,6 +29,7 @@ class WishForm extends React.Component {
 
   handleFocus(e) {
     this.props.updateWishFormFocus(true);
+    this.props.wishType ? ym('reachGoal', `INPUT_FOCUS_${this.props.wishType}`) : ym('reachGoal', 'INPUT_FOCUS');
   }
 
   handleBlur(e) {
@@ -41,7 +42,7 @@ class WishForm extends React.Component {
   };
 
   sendWish(reCaptchaResponse) {
-    ym('reachGoal', 'WISH');
+    this.props.wishType ? ym('reachGoal', `WISH_${this.props.wishType}`) : ym('reachGoal', 'WISH');
     var clientId = ym('getClientID');
     var url = 'https://hello.wishbox.space/api/wishes';
 //    var url = 'http://127.0.0.1:5000/api/wishes';

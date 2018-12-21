@@ -74,6 +74,7 @@ class Wish extends React.Component {
                 isWishFormInFocus={this.state.wishFormInFocus}
                 updateWishFormFocus={this.updateWishFormFocus}
                 placeholder={this.props.wishInputPlaceholder}
+                wishType={this.props.wishType}
             />
             <WishCounter
                 isWishFormInFocus={this.state.wishFormInFocus}

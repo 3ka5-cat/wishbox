@@ -9,6 +9,7 @@ class App extends Component {
 //<p>Вселенная позаботилась уже о <strong>{wishCount}</strong> запросах</p>
   render() {
     const originalContext = {
+        wishType: '',
         rootDivClassName: 'container wish',
         topTitle: 'Хочу, чтобы...',
         doneMessage: {
@@ -36,6 +37,7 @@ class App extends Component {
         }
       };
     const newYearContext = {
+        wishType: 'ny',
         rootDivClassName: 'container wish new-year',
         topTitle: 'Дорогой Дедушка Мороз, ...',
         doneMessage: {
