@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/3ka5-cat/wishbox/issues"
   },
-  "homepage": "https://wishbox.space",
+  "homepage": "https://3ka5-cat.github.io/wishbox",
   "dependencies": {
     "axios": "^0.17.1",
     "react": "^16.1.0",
