@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/static/media/bg_ny.min.b5ac7be0.jpg"
   },
   {
-    "revision": "9ae3a3bd54378b82520564b573e04a5f",
+    "revision": "a4bcce05d4b096f8f8ede6ec27d2c425",
     "url": "/index.html"
   }
 ];
