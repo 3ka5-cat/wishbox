@@ -1,0 +1,41 @@
+{
+  "name": "wishbox",
+  "version": "1.2.0",
+  "description": "Send your wish into space https://wishbox.space",
+  "homepage": "https://wishbox.space",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/3ka5-cat/wishbox.git"
+  },
+  "author": "3ka5-cat",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-google-recaptcha": "^1.0.5",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.1",
+    "react-yandex-metrika": "^2.4.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
+}

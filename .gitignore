@@ -1,25 +1,26 @@
-local_libs/
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
-*.map
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.zip
-*.tar
-*.psd
+# testing
+/coverage
 
+
+# misc
 .DS_Store
-Thumbs.db
-desktop.ini
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+*.zip
+*.log
 
 .idea/

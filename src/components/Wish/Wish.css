@@ -1,14 +1,13 @@
-html {
+.wish {
+    background: #00001b url(./images/bg.min.jpg) no-repeat scroll 0 0;
     height: 100%;
+    background-size: cover;
 }
 
-body {
+.wish.new-year {
+    background: #00001b url(./images/bg_ny.min.jpg) no-repeat scroll 0 -350px;
     height: 100%;
-    position: relative;
-    background: #00001b url(static/bg.min.jpg) no-repeat scroll 0 0;
     background-size: cover;
-    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-    color: #fff;
 }
 
 a,
@@ -17,25 +16,25 @@ a:hover {
 }
 
 input::-webkit-input-placeholder {
-    color: #fff;
+    color: #122E62;
     font-size: 75%;
-    line-height: 1.5em;
+    line-height: 2em;
     font-weight: 300;
     transition: all 0.5s;
 }
 
 input::-moz-placeholder {
-    color: #fff;
+    color: #122E62;
     font-size: 75%;
-    line-height: 1.5em;
+    line-height: 2em;
     font-weight: 300;
     transition: all 0.5s;
 }
 
 input::-ms-input-placeholder {
-    color: #fff;
+    color: #122E62;
     font-size: 75%;
-    line-height: 1.5em;
+    line-height: 2em;
     font-weight: 300;
     transition: all 0.5s;
 }
@@ -54,7 +53,6 @@ input:focus::-ms-input-placeholder {
 
 .container {
     display: flex;
-    height: 90%;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -128,8 +126,6 @@ input:focus::-ms-input-placeholder {
 
 .container-form-button-icon {
     display: block;
-    width: 32px;
-    height: 32px;
     margin: 0 auto;
     text-align: center;
 }
@@ -157,6 +153,7 @@ input:focus::-ms-input-placeholder {
     transform: translate(0, 50px);
     color: transparent;
     text-shadow: 0 1px 3px transparent;
+    background: transparent;
 }
 
 .container-counter p {
@@ -190,10 +187,18 @@ input:focus::-ms-input-placeholder {
     left: 10%;
 }
 
+.accordion-section-title.hide {
+    display: none;
+}
+
 .accordion-section-title {
     display: inline-block;
     color: #fff;
     border-bottom: 1px dashed #fff;
+}
+
+.accordion-section-content.hide {
+    display: none;
 }
 
 .accordion-section-content {
@@ -214,6 +219,8 @@ input:focus::-ms-input-placeholder {
 
 .accordion-section-content svg {
     vertical-align: bottom;
+    width: 16px;
+    height: 16px
 }
 
 .accordion-section-content svg > * {
@@ -232,12 +239,43 @@ input:focus::-ms-input-placeholder {
         position: relative;
     }
 
+    .wish.new-year {
+        background: #00001b url(./images/bg_ny.min.jpg) no-repeat scroll 0 0;
+        height: 100%;
+        background-size: cover;
+    }
+
+    .new-year > .container-header {
+        font-size: 1.5em;
+    }
+
     .container-header {
-        margin: -1em 0 0 0;
+        margin: -1em 0 -2em 0;
     }
 
     .container-form-input {
         font-size: 1.5em;
+    }
+
+    input::-webkit-input-placeholder {
+        color: #122E62;
+        font-size: 55%;
+        line-height: 3.2em;
+        font-weight: 400;
+        transition: all 0.5s;
+    }
+
+    input::-moz-placeholder {
+        color: #122E62;
+        font-size: 55%;
+        line-height: 3.2em;
+        font-weight: 400;
+        transition: all 0.5s;
+    }
+
+    .container-counter {
+        margin: 2em 0 0 0;
+        background: rgba(56, 65, 98, 0.40);
     }
 
     .accordion-section {
@@ -246,10 +284,7 @@ input:focus::-ms-input-placeholder {
     }
 
     .accordion-section-title {
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
+        margin-bottom: 20px;
     }
 
     .accordion-section-content {
@@ -258,7 +293,7 @@ input:focus::-ms-input-placeholder {
     }
 
     .accordion-section-content.active {
-        padding-bottom: 20px;
+        padding-bottom: 60px;
     }
 
 }
