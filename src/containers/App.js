@@ -61,8 +61,6 @@ class App extends React.Component {
         }
       };
 
-      console.log("Your process.env.PUBLIC_URL", process.env.PUBLIC_URL);
-
       return(
           <Switch>
             <Route path="/" exact key="original" render={() => <Wish {...originalContext} />} />

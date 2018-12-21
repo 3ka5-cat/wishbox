@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./containers/App.js";
 
 ReactDOM.render(
-  <BrowserRouter basename={process.env.PUBLIC_URL}>
+  <BrowserRouter basename="https://wishbox.space">
     <App />
   </BrowserRouter>,
   document.getElementById("root")
