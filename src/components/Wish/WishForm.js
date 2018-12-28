@@ -41,12 +41,16 @@ class WishForm extends React.Component {
     this.recaptchaRef.current.execute();
   };
 
-  sendWish(reCaptchaResponse) {
+  sendWish() {
     this.props.wishType ? ym('reachGoal', `WISH_${this.props.wishType}`) : ym('reachGoal', 'WISH');
-    var clientId = window['yaCounter33316388'].getClientID();
+    var clientId = 'anon'
+    if (window['yaCounter33316388'])
+         clientId = window['yaCounter33316388'].getClientID();
+
     var url = 'https://hello.wishbox.space/api/wishes';
 //    var url = 'http://127.0.0.1:5000/api/wishes';
 
+    var reCaptchaResponse = this.recaptchaRef.current.getValue();
     axios.post(url, {
       text: this.state.wish,
       external_user_id: clientId,
