@@ -179,6 +179,15 @@ input:focus::-ms-input-placeholder {
     margin: 0;
 }
 
+.banner-done {
+    display: block;
+    margin-top: 30px;
+}
+
+.banner-done.hide {
+    display: none;
+}
+
 .accordion-section {
     width: 80%;
     text-align: center;

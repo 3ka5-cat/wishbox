@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Banner from './Banner';
+
 class DoneMessage extends React.Component {
   sendAgain(e) {
     e.preventDefault();
@@ -16,6 +18,7 @@ class DoneMessage extends React.Component {
         <p>{doneText}</p>
         <a href='#' className={'link '  + (isWishSent ? '': 'hide')} id='again'
           onClick={this.sendAgain.bind(this)}>{againText}</a>
+        <Banner isShown={isWishSent} />
       </div>
     )
   }
