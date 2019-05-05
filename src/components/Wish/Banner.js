@@ -6,12 +6,26 @@ class Banner extends React.Component {
 
     return (
       <span className={'banner-done ' + (isShown ? '': 'hide')}>
-        <a href="http://astro7.ru/landing/gadaniya-besplatno/?partner=5c17efd7806fa&amp;pb=ec7ac628" target="_top">
-            <img src="//affiliate.teleastro.ru/accounts/default1/7obnyw0/ec7ac628.gif"
-              alt="" title="" width="240" height="220" />
-        </a>
-        <img style={{ border: 0 }} src="https://affiliate.teleastro.ru/scripts/7oinyw0?partner=5c17efd7806fa&amp;pb=ec7ac628"
-          width="1" height="1" alt="" />
+        <!-- Yandex.RTB R-A-292666-1 -->
+        <div id="yandex_rtb_R-A-292666-1"></div>
+        <script type="text/javascript">
+            (function(w, d, n, s, t) {
+                w[n] = w[n] || [];
+                w[n].push(function() {
+                    Ya.Context.AdvManager.render({
+                        blockId: "R-A-292666-1",
+                        renderTo: "yandex_rtb_R-A-292666-1",
+                        async: true
+                    });
+                });
+                t = d.getElementsByTagName("script")[0];
+                s = d.createElement("script");
+                s.type = "text/javascript";
+                s.src = "//an.yandex.ru/system/context.js";
+                s.async = true;
+                t.parentNode.insertBefore(s, t);
+            })(this, this.document, "yandexContextAsyncCallbacks");
+        </script>
       </span>
     );
   }
