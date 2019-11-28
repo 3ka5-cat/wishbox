@@ -3,7 +3,7 @@
     <p>{{ messages['done'] }}</p>
     <a href='#' :class="['link', className]" id='again' @click=sendAgain>{{ messages['again'] }}
     </a>
-    <Banner :isShown="isWishSent" :rtbId="bannerRtbId" />
+    <Banner :isShown="isWishSent" :rtbId="bannerRtbId" rtbBlockId="bannerRtbBlockId" />
   </div>
 </template>
 
@@ -17,6 +17,7 @@
       messages: Object,
       isWishSent: Boolean,
       bannerRtbId: String,
+      bannerRtbBlockId: String,
     },
     components: {
       Banner
