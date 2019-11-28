@@ -26,7 +26,7 @@ export default new Vuex.Store({
     SET_LOADING(state, loading) {
       state.loading = loading
     },
-    SET_WISH_COUNTER(state, count) {
+    SET_WISH_COUNTER(state, { count }) {
       state.wishCount = count
     },
     SET_WISH_TEXT(state, text) {
