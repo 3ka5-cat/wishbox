@@ -82,7 +82,7 @@
         this.SET_USER_ID({ id: clientId });
 
         axios.post(wishesUrl, {
-          text: this.text,
+          text: this.wishText,
           external_user_id: this.userId,
           recaptcha_token: recaptchaResponse,
         })
