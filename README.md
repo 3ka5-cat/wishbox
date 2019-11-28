@@ -1,4 +1,4 @@
-# forfeits
+# wishbox
 
 ## Project setup
 ```
