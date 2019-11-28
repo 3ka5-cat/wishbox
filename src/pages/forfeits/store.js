@@ -4,8 +4,8 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const forfeitsUrl = 'https://hello.wishbox.space/api/forfeits';
-// const forfeitsUrl = 'http://wish.localhost:5000/api/forfeits';
+const forfeitsUrl = 'https://hello.wishbox.space/api/forfeits'
+// const forfeitsUrl = 'http://wish.localhost:5000/api/forfeits'
 
 export default new Vuex.Store({
   state: {
@@ -23,7 +23,7 @@ export default new Vuex.Store({
       state.isPlaying = true
     },
     SET_FORFEIT(state, forfeit) {
-      state.forfeit = forfeit;
+      state.forfeit = forfeit
     },
     SET_ERROR(state, error) {
       state.error = error
@@ -34,13 +34,13 @@ export default new Vuex.Store({
   },
   actions: {
     SET_USER_ID({ commit }, { id }) {
-      commit('SET_USER_ID', id);
+      commit('SET_USER_ID', id)
     },
     START_TO_PLAY({ commit }) {
       commit('START_TO_PLAY')
     },
     SET_FORFEIT({ commit, state }) {
-      commit('SET_LOADING', true);
+      commit('SET_LOADING', true)
       axios
         .get(forfeitsUrl, {
           params: {
@@ -48,14 +48,14 @@ export default new Vuex.Store({
           }
         })
         .then((response) => {
-          commit('SET_FORFEIT', response.data.data);
-          commit('SET_ERROR', null);
+          commit('SET_FORFEIT', response.data.data)
+          commit('SET_ERROR', null)
         })
         .catch((error) => {
-          commit('SET_ERROR', error);
+          commit('SET_ERROR', error)
         })
         .finally(() => {
-          commit('SET_LOADING', false);
+          commit('SET_LOADING', false)
         });
 
     },
@@ -66,7 +66,7 @@ export default new Vuex.Store({
           external_user_id: state.userId,
         })
         .catch((error) => {
-          commit('SET_ERROR', error);
+          commit('SET_ERROR', error)
         })
     },
   }

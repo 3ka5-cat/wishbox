@@ -4,31 +4,35 @@
       <flower-spinner
       :animation-duration="2500"
       :size="70"
-      color="#FFCF40"
+      color="#FFF"
       />
     </div>
-    <WelcomeMessage v-if="!isPlaying"/>
-    <Forfeit v-else></Forfeit>
+    <Wish v-else />
   </div>
 </template>
 
 <script>
   import { FlowerSpinner } from 'epic-spinners'
-  import { mapState } from 'vuex'
-  import Forfeit from './components/Forfeit.vue'
-  import WelcomeMessage from './components/WelcomeMessage.vue'
+  import { mapState, mapActions } from 'vuex'
+  import Wish from '@/components/Wish.vue'
 
   export default {
     name: 'app',
     components: {
       FlowerSpinner,
-      Forfeit,
-      WelcomeMessage
+      Wish
     },
     computed: mapState([
-      'isPlaying',
       'loading',
-    ])
+    ]),
+    mounted: function () {
+      this.SET_WISH_COUNTER();
+    },
+    methods: {
+      ...mapActions([
+        'SET_WISH_COUNTER',
+      ])
+    }
   }
 </script>
 
@@ -42,19 +46,20 @@ html {
 }
 
 body {
-  background: #45C7D5 url(./assets/bg.png) no-repeat scroll 0 -50px;
-  /*height: 100%;*/
+  height: 100%;
   margin: 0;
   padding: 0;
-  color: #fff;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  color: #fff;
+  background: #00001b;
 }
+
 #app {
   height: 100%;
 }
+
 #spinner {
   position: absolute;
   top: 50%;
