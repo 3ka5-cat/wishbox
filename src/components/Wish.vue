@@ -121,6 +121,7 @@
     justify-content: center;
     flex-direction: column;
     transition: height 0.5s;
+    max-width: 100%;
   }
   @media screen and (max-width: 600px), (max-height: 400px) {
     .container {
