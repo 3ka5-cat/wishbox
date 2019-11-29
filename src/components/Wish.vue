@@ -8,8 +8,6 @@
     <DoneMessage
         :isWishSent="wishSent"
         :messages="doneMessages"
-        :bannerRtbId="bannerRtbId"
-        :bannerRtbBlockId="bannerRtbBlockId"
     />
     <WishForm
       :placeholder="inputPlaceholder"
@@ -56,12 +54,6 @@
       },
     },
     computed: {
-      bannerRtbId () {
-        return this.wishType === 'ny' ? '' : 'yandex_rtb_R-A-292666-1'
-      },
-      bannerRtbBlockId () {
-        return this.wishType === 'ny' ? '' : 'R-A-292666-1'
-      },
       doneMessages () {
         let standardMessage = {
           done: 'Запрос ушел Космосу, теперь осталось расслабиться и перестань об этом думать. Все будет хорошо!',
