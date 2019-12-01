@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /forfeits
-Disallow: /banner
 Host: wishbox.space
