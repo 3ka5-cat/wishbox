@@ -124,7 +124,8 @@
     border: 0;
     border-radius: 1.5rem;
     height: 3rem;
-    width: calc(100% - 4rem);
+    /*width: calc(100% - 4rem);*/
+    width: 100%;
     font-size: 2em;
     line-height: 2.5rem;
     text-align: center;
@@ -191,6 +192,7 @@
   @media screen and (max-width: 600px), (max-height: 400px) {
     .container-form-input {
       font-size: 1.5em;
+      padding: 0 3.2rem 0 0.5rem;
     }
 
     input::-webkit-input-placeholder {
