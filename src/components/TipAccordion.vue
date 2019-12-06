@@ -16,7 +16,7 @@
     name: 'Tip',
     props: {
       tip: Object,
-      isWishFormInFocus: Boolean
+      isHidden: Boolean
     },
     data() {
       return {
@@ -27,8 +27,8 @@
       toggleCollapse() { this.collapsed = !this.collapsed }
     },
     computed: {
-      titleClassName() { return this.isWishFormInFocus ? 'hide' : ''},
-      textClassName() { return (this.collapsed ? '' : 'active ') + (this.isWishFormInFocus ? 'hide' : '')}
+      titleClassName() { return this.isHidden ? 'hide' : ''},
+      textClassName() { return (this.collapsed ? '' : 'active ') + (this.isHidden ? 'hide' : '')}
     }
   }
 </script>

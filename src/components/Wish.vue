@@ -22,7 +22,7 @@
       :social="social"
     />
     <TipAccordion
-        :isWishFormInFocus="wishFormInFocus"
+        :isHidden="wishSent || wishFormInFocus"
         :tip="tip"
     />
   </div>
