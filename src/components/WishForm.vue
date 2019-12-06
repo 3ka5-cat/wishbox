@@ -95,6 +95,8 @@
 
         this.SET_WISH_SENT({ isSent: true })
         this.SET_WISH_TEXT({ text: '' })
+        this.SET_WISH_FORM_FOCUS({ inFocus: false })
+        this.$refs.recaptcha.reset()
       },
       ...mapActions([
         'SET_USER_ID',
