@@ -6,8 +6,9 @@
       :title="title"
     />
     <DoneMessage
-        :isWishSent="wishSent"
-        :messages="doneMessages"
+        :isHidden="!wishSent"
+        :message="doneMessage"
+        :actions="doneActions"
     />
     <WishForm
       :placeholder="inputPlaceholder"
@@ -32,6 +33,7 @@
   import { mapState } from 'vuex'
   import DoneMessage from './DoneMessage'
   import NewYearTip from './NewYearTip'
+  import OneMoreWish from './OneMoreWish'
   import StandardTip from './StandardTip'
   import TipAccordion from './TipAccordion'
   import WishCounter from './WishCounter'
@@ -54,15 +56,31 @@
       },
     },
     computed: {
-      doneMessages () {
-        let standardMessage = {
-          done: 'Запрос ушел Космосу, теперь осталось расслабиться и перестань об этом думать. Все будет хорошо!',
-          again: 'Но лучше загадать еще одно желание',
-        }
-        let nyMessage = {
-          done: 'Желание ушло Деду Морозу. Продолжай хорошо себя вести и оно обязательно сбудется! А если ты весь год был хорошим мальчиком или девочкой, ',
-          again: 'можешь загадать еще одно.',
-        }
+      doneActions () {
+        let standardActions = [
+          {
+            name: 'SubmitOneMoreWish',
+            component: OneMoreWish,
+            data: {
+              callToActionText: 'Но лучше загадать еще одно желание',
+            },
+          },
+        ]
+        let nyActions = [
+          {
+            name: 'SubmitOneMoreWish',
+            component: OneMoreWish,
+            data: {
+              textBeforeAction: 'А если ты весь год был хорошим мальчиком или девочкой, то можешь',
+              callToActionText: 'загадать еще одно желание.',
+            },
+          },
+        ]
+        return this.wishType === 'ny' ? nyActions : standardActions
+      },
+      doneMessage () {
+        let standardMessage = 'Запрос ушел Космосу, теперь осталось расслабиться и перестань об этом думать. Все будет хорошо!'
+        let nyMessage = 'Желание ушло Деду Морозу. Продолжай хорошо себя вести и оно обязательно сбудется!'
         return this.wishType === 'ny' ? nyMessage : standardMessage
       },
       inputPlaceholder () { return this.wishType === 'ny' ? '... формулируй, дедушка ждет' : '... формулируй, космос ждет' },

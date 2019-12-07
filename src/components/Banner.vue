@@ -8,7 +8,7 @@
   export default {
     name: 'Banner',
     props: {
-      isShown: Boolean
+      isHidden: Boolean
     },
     mounted () {
       const yaScript = document.createElement('script')
@@ -33,8 +33,7 @@
       document.head.appendChild(yaScript)
     },
     computed: {
-      className () { return this.isShown ? '' : 'hide' },
-      bannerId () { return this.isShown ? this.rtbId : '' }
+      className () { return this.isHidden ? 'hide' : '' }
     }
   }
 </script>
