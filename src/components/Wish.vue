@@ -12,12 +12,12 @@
     />
     <WishForm
       :placeholder="inputPlaceholder"
-      :isWishSent="wishSent"
+      :isHidden="wishSent"
       :ymGoalPrefix="wishType"
       recaptchaSiteKey="6LfRWDsUAAAAAIDgXusXVA7JmuSbmWlStqLkSFal"
     />
     <WishCounter
-      :isWishFormInFocus="wishFormInFocus"
+      :isHidden="wishFormInFocus"
       :recipient="recipient"
       :wishCount="wishCount"
       :social="social"

@@ -38,7 +38,7 @@
     name: 'WishForm',
     props: {
       placeholder: String,
-      isWishSent: Boolean,
+      isHidden: Boolean,
       ymGoalPrefix: String,
       recaptchaSiteKey: String,
     },
@@ -47,7 +47,7 @@
       VueRecaptcha
     },
     computed: {
-      formClassName() { return this.isWishSent ? 'hide' : ''},
+      formClassName() { return this.isHidden ? 'hide' : ''},
       buttonClassName() { return this.isWishFormInFocus ? 'focused' : ''},
       ...mapState([
         'userId',

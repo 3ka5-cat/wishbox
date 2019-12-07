@@ -2,7 +2,7 @@
   <div :class="['container-counter', className]" >
     <p>{{ recipient }} уже позаботился о <strong>{{ wishCount }}</strong> запросах</p>
     <p>Если рассказать об этом друзьям, счастливых людей станет больше</p>
-    <SocialShare :social="social" :isHide="isWishFormInFocus" />
+    <SocialShare :social="social" :isHide="isHidden" />
   </div>
 </template>
 
@@ -14,14 +14,14 @@
     props: {
       recipient: String,
       wishCount: Number,
-      isWishFormInFocus: Boolean,
+      isHidden: Boolean,
       social: Object,
     },
     components: {
       SocialShare
     },
     computed: {
-      className() { return this.isWishFormInFocus ? 'hide' : ''}
+      className() { return this.isHidden ? 'hide' : ''}
     }
   }
 </script>
