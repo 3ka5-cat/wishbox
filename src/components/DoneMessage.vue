@@ -1,12 +1,14 @@
 <template>
   <div :class="['container-done-msg', className]">
     <p>{{ message }}</p>
-    <span v-if="!isHidden" v-for="action in actions" :key="action.name">
-      <component
-          :is="action.component"
-          :data="action.data"
-          :isHidden="isHidden"
-      ></component>
+    <span v-if="!isHidden">
+      <span v-for="action in actions" :key="action.name">
+        <component
+            :is="action.component"
+            :data="action.data"
+            :isHidden="isHidden"
+        ></component>
+      </span>
     </span>
     <Banner :isHidden="isHidden" />
   </div>

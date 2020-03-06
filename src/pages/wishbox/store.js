@@ -11,7 +11,7 @@ export default new Vuex.Store({
     loading: false,
     error: null,
     userId: 'anon',
-    wishCount: 832,
+    wishCount: 41775,
     wishText: '',
     wishFormInFocus: false,
     wishSent: false,
@@ -46,7 +46,9 @@ export default new Vuex.Store({
     SET_WISH_COUNTER({ commit }) {
       commit('SET_LOADING', true);
       axios
-        .get(wishesUrl)
+        .get(wishesUrl, {
+          timeout: 500
+        })
         .then((response) => {
           commit('SET_WISH_COUNTER', response.data.data);
           commit('SET_ERROR', null);
